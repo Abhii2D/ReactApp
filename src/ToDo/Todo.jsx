@@ -1,62 +1,65 @@
 import { useState } from "react";
-import "./Todo.css";
-import { MdCheck, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 export const Todo = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [task, setTask] = useState([]);
-
+  const [inputdata, setInputdata] = useState("");
+  const [list, setList] = useState([]);
+const[date,setDate] = useState("");
   const handleInput = (value) => {
-    setInputValue(value);
+    setInputdata(value);
   };
-  
-  const handleForm = (e) => {
+  const formhandling = (e) => {
     e.preventDefault();
-    if (!inputValue) return;
-    if (task.includes(inputValue)) {
-      setInputValue("");
-      return;
-    }
-    setTask((prev) => [...prev, inputValue]);
-    setInputValue("");
+    setList((e) => [...e, inputdata]);
+    setInputdata("");
   };
-  
+
+  setInterval(() => {
+    const now = new Date();
+    const currentdate = now.toLocaleDateString();
+    const nowtime = now.toLocaleTimeString();
+    setDate(`${currentdate} - ${nowtime}`);
+  }, 1000);
+// deleting the selected todo task
+
+const deleteSpan = (value) => {
+  console.log(value);
+  const updatedata = list.filter((current) => current !== value);
+  setList(updatedata);
+}
   return (
-    <>
-      <section className="todo-container">
-        <header>
-          <h1>Todo List</h1>
-        </header>
-        <section className="form">
-          <form onSubmit={handleForm}>
-            <div>
-              <input
-                type="text"
-                className="todo-input"
-                autoCapitalize="off"
-                value={inputValue}
-                onChange={(e) => handleInput(e.target.value)}
-              />
-            </div>
-            <div>
-              <button className="todo-btn" type="submit">
-                Add Task
-              </button>
-            </div>
-          </form>
-        </section>
-        <section className="myUnOrdList">
-          <ul>
-            {task.map((cur, index) => (
-              <li key={index} className="todo-item">
-                <span>{cur}</span>
-                <button className="check-btn"><MdCheck /></button>
-                <button className="delete-btn"><MdDelete /></button>
+    <div>
+      <form onSubmit={formhandling}>
+        <h1>Todo Application</h1>
+        <h3>
+          {date}
+        </h3>
+        <div>
+          <input
+            type="text"
+            className="todo-input"
+            autoCapitalize="off"
+            value={inputdata}
+            onChange={(e) => handleInput(e.target.value)}
+          />
+
+          <button type="submit">Click</button>
+        </div>
+      </form>
+      <section>
+        <ul>
+          {list.map((e, i) => {
+            return (
+              <li key={i}>
+                <span>{e}</span>
+                <button onClick={() => deleteSpan(e)}>
+                  <MdDelete />
+                </button>
               </li>
-            ))}
-          </ul>
-        </section>
+            );
+          })}
+        </ul>
       </section>
-    </>
+    </div>
   );
 };
