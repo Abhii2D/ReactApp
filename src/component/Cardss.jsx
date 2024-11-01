@@ -1,5 +1,5 @@
-import seri from "./api/seri.json";
-import { Seridata } from "./component/Seridata";
+import seri from "../api/seri.json";
+import { Seridata } from "./Seridata";
 import './prac.css'
 
 export const Cardss = () => {

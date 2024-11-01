@@ -10,9 +10,9 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 3%;
+    padding-top: 1%;
     background-image: linear-gradient(100deg, #001214, #001f29);
-    color: red;
+    color: black;
     transition: 0.3s linear;
     overflow: hidden;
   }
@@ -31,13 +31,13 @@
     flex-direction: column;
     justify-content: space-around;
     font-size: 3rem;
-    min-height: 25vh;
+    min-height: 20vh;
     width: 100%;
   }
   
   section h1 {
     color: #fff;
-    font-size: 4.8rem;
+    font-size: 2.8rem;
     text-align: center;
   }
   
@@ -50,14 +50,14 @@
     display: flex;
     font-size: 1.7rem;
     justify-content: center;
-    margin: 15px 0;
+    margin: 10px 0;
     padding: 0.8rem;
     width: 100%;
   }
   
   form input {
     padding: 10px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     letter-spacing: 0.1rem;
     border: none;
     outline: none;
@@ -123,7 +123,7 @@
   }
   
   .todo-item {
-    margin: 2.4rem;
+    margin: 2.0rem;
     /*word-wrap: break-word;
       */ /*flex-wrap: wrap;
       */
@@ -134,11 +134,11 @@
     background-color: #f2f3f4;
     min-width: 35rem;
     max-width: 40rem;
-    padding: 1.6rem 3rem;
+    padding: 0.5rem 2rem;
     display: grid;
     grid-template-columns: 1fr 0.3fr 0.3fr;
     justify-content: start;
-    gap: 1.6rem;
+    gap: 1.0rem;
     /*align-items: center;
       */ /*wrapsthelinks*/
     overflow-wrap: anywhere;
