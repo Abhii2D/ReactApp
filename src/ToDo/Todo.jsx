@@ -2,13 +2,26 @@ import { useState } from "react";
 import "./Todo.css";
 import { MdCheck, MdDelete } from "react-icons/md";
 
+const Mydata = "localtodo";
+const getLocalStorage = ()=> {
+  const rawData = localStorage.getItem(Mydata);
+  if(!rawData) return [];
+  return JSON.parse(rawData);
+}
+
 export const Todo = () => {
   const [inputValue, setInputValue] = useState("");
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState( ()=>
+    getLocalStorage());
+
 
   const handleInput = (value) => {
     setInputValue(value);
   };
+
+  localStorage.setItem("localtodo",JSON.stringify(task))
+  
+ 
   
   const handleForm = (e) => {
     e.preventDefault();
