@@ -27,6 +27,10 @@ const deleteSpan = (value) => {
   const updatedata = list.filter((current) => current !== value);
   setList(updatedata);
 }
+const ClearBtn = ()=>{
+  const up = [];
+  setList(up);
+}
   return (
     <div>
       <form onSubmit={formhandling}>
@@ -44,6 +48,7 @@ const deleteSpan = (value) => {
           />
 
           <button type="submit">Click</button>
+      <button onClick={ClearBtn}>Clear</button>
         </div>
       </form>
       <section>
@@ -60,6 +65,7 @@ const deleteSpan = (value) => {
           })}
         </ul>
       </section>
+      
     </div>
   );
 };
